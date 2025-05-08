@@ -9,3 +9,6 @@ pubspec.lock
 # example/
 *.wasm
 *.mjs
+
+# macOS
+.DS_Store
