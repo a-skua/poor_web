@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+    <script type="module">
+      import { compileStreaming, instantiate, invoke } from "./poor_web_example.mjs";
+
+      const instance = await instantiate(
+        compileStreaming(fetch(new URL("./poor_web_example.wasm", import.meta.url))),
+      );
+
+      invoke(instance);
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      This is a poor web example.
+    </div>
+  </body>
+</html>

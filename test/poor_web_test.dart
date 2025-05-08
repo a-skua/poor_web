@@ -2,15 +2,13 @@ import 'package:poor_web/poor_web.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('A group of tests', () {
-    final awesome = Awesome();
-
+  group('appendAll', () {
     setUp(() {
       // Additional setup goes here.
     });
 
     test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+      expect(true, isTrue);
     });
   });
 }

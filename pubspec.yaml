@@ -1,13 +1,14 @@
 name: poor_web
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: light web wrapper library.
+version: 2025.5.8
+repository: https://github.com/a-skua/poor_web
 
 environment:
   sdk: ^3.7.2
 
 # Add regular dependencies here.
 dependencies:
+  web: ^1.1.1
   # path: ^1.8.0
 
 dev_dependencies:
