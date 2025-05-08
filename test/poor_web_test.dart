@@ -1,8 +1,7 @@
-import 'package:poor_web/poor_web.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('appendAll', () {
+  group('Example', () {
     setUp(() {
       // Additional setup goes here.
     });
@@ -10,5 +9,5 @@ void main() {
     test('First Test', () {
       expect(true, isTrue);
     });
-  });
+  }, skip: true);
 }

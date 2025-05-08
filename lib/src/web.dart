@@ -9,3 +9,9 @@ extension ElementAppendAll on Element {
     }
   }
 }
+
+/// Error on Node.js:
+///   TypeError: null: type 'JSNull' is not a subtype of type 'JSObject'
+Window get window => globalContext as Window;
+
+Uri get current => Uri.parse(window.location.href);
