@@ -10,18 +10,24 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages). 
 -->
-
 Light [web](https://pub.dev/packages/web) wrapper library.
 
 ## Usage
 
 ```dart
-HTMLDivElement()..appendAll([
-  HTMLHeadingElement.h1()..append(Text('Hello, Dart Web!')),
-  HTMLParagraphElement()..append(Text('This is a simple web application.')),
-]),
+import 'package:poor_web/poor_web.dart';
+
+void main() {
+  final global = globalThis;
+
+  global['foo'] = Object();
+  print(global['foo']); // [object Object]
+  print(global['baz']); // null
+}
 ```
 
 ## Additional information
 
+- [package:poor_web](https://pub.dev/packages/poor_web)
 - [package:web](https://pub.dev/packages/web)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
