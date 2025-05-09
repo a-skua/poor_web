@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <title>Example</title>
     <script type="module">
-      import { compileStreaming, instantiate, invoke } from "./poor_web_example.mjs";
+      import {
+        compileStreaming,
+        instantiate,
+        invoke,
+      } from "./poor_web_example.mjs";
 
       const instance = await instantiate(
-        compileStreaming(fetch(new URL("./poor_web_example.wasm", import.meta.url))),
+        compileStreaming(
+          fetch(new URL("./poor_web_example.wasm", import.meta.url)),
+        ),
       );
 
       invoke(instance);

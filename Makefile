@@ -1,12 +1,12 @@
 .PHONY: example
 example: example/poor_web_example.wasm
 
+.PHONY: serve
+serve: example
+	python3 -m http.server -d example
+
 %.wasm: %.dart
-	dart compile wasm \
-		--output=$@ \
-		--optimization-level=4 \
-		--no-source-maps \
-		$<
+	dart compile wasm --optimization-level=4 --no-source-maps --output=$@ $<
 
 .PHONY: check
 check:
@@ -18,6 +18,10 @@ test:
 		echo "[$$p]"; \
 		dart test -p $$p; \
 	done
+
+.PHONY: fmt
+fmt:
+	@dart format .
 
 .PHONY: clean
 clean:

@@ -1,6 +1,6 @@
 name: poor_web
 description: light web wrapper library.
-version: 2025.5.8
+version: 2025.5.10-1
 repository: https://github.com/a-skua/poor_web
 
 environment:

@@ -1,8 +1,9 @@
-import 'dart:js_interop' if (dart.library.io) 'js_interop_stub.dart';
-import 'package:web/web.dart' if (dart.library.io) 'web_stub.dart';
-export 'package:web/web.dart' if (dart.library.io) 'web_stub.dart';
+import 'deps/web.dart' as web;
+export 'deps/web.dart';
 
-extension ElementAppendAll on Element {
+import 'js.dart';
+
+extension ElementAppendAll on web.Element {
   void appendAll(Iterable<JSAny> elements) {
     for (final element in elements) {
       append(element);
@@ -10,8 +11,17 @@ extension ElementAppendAll on Element {
   }
 }
 
+extension type Window._(web.Window _window) implements web.Window, Object {
+  Object? operator [](String property) => Object.fromJS(_window)[property];
+
+  void operator []=(String property, Object? value) =>
+      Object.fromJS(_window)[property] = value;
+}
+
 /// Error on Node.js:
 ///   TypeError: null: type 'JSNull' is not a subtype of type 'JSObject'
-Window get window => globalContext as Window;
+Window get window => Window._(globalContext as web.Window);
+
+Window get globalThis => window;
 
 Uri get current => Uri.parse(window.location.href);
