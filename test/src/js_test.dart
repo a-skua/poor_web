@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('Any', () {
     test('get function', () {
-      Any any = Fn(() {});
+      Any any = Fn.v0(() {});
       expect(any.function, isA<Fn>());
     });
 

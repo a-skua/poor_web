@@ -105,4 +105,29 @@ extension JSBooleanExtension on bool {
   JSBoolean get toJS => JSBoolean._(this);
 }
 
+/// stub
+final class JSPromise<T extends JSAny?> extends JSAny {
+  final Future<T> _future;
+  JSPromise(this._future) : super._();
+
+  Future<T> get toDart => _future;
+}
+
+extension FutureExtension<T extends JSAny?> on Future<T> {
+  JSPromise<T> get toJS => JSPromise<T>(this);
+}
+
+/// stub
+final class JSArray<T extends JSAny?> extends JSAny {
+  final List<T> _list;
+  JSArray._(this._list) : super._();
+  factory JSArray() => JSArray._([]);
+
+  List<T> get toDart => _list;
+}
+
+extension ListExtension<T extends JSAny?> on List<T> {
+  JSArray<T> get toJS => JSArray<T>._(this);
+}
+
 get globalContext => JSObject();
