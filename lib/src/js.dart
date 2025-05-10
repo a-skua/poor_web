@@ -219,3 +219,18 @@ extension type Boolean._(JSBoolean _bool) implements JSBoolean, Any {
 
   core.bool get toDart => _bool.toDart;
 }
+
+/// Wrap [JSPromise]
+extension type Promise<T extends JSAny?>._(JSPromise<T> _promise)
+    implements JSPromise<T>, Any {
+  Promise(core.Future<T> future) : _promise = future.toJS;
+}
+
+/// Wrap [JSArray]
+extension type Array<T extends JSAny?>._(JSArray<T> _array)
+    implements JSArray<T>, Any {
+  Array() : _array = JSArray();
+  Array.from(core.List<T> list) : _array = list.toJS;
+
+  core.List<T> get toDart => _array.toDart;
+}
