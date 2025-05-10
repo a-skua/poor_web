@@ -1,7 +1,7 @@
 SRC:=$(shell find lib -name '*.dart')
 
 .PHONY: example
-example: example/poor_web_example.wasm
+example: example/example.wasm example/poor_web_example.wasm
 
 .PHONY: serve
 serve: example

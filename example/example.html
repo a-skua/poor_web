@@ -8,23 +8,23 @@
         compileStreaming,
         instantiate,
         invoke,
-      } from "./poor_web_example.mjs";
+      } from "./example.mjs";
 
       const instance = await instantiate(
         compileStreaming(
-          // fetch(new URL("./poor_web_example.wasm", import.meta.url)),
-          fetch(
-            new URL("./poor_web_example.unopt.wasm", import.meta.url),
-          ),
+          fetch(new URL("./example.wasm", import.meta.url)),
         ),
       );
 
       invoke(instance);
+
+      const a = 1;
+      const b = 2;
+      const c = calc.add(a, b);
+      document.querySelector("#example").append(new Text(calc.print(a, b, c)));
     </script>
   </head>
   <body>
-    <div id="app">
-      This is a poor web example.
-    </div>
+    <main id="example"></main>
   </body>
 </html>
