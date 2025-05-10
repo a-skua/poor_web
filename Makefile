@@ -25,6 +25,14 @@ test:
 fmt:
 	@dart format .
 
+.PHONY: analyze
+analyze:
+	@dart analyze
+
+doc: $(SRC)
+	@dart doc --output=$@
+	@python3 -m http.server -d $@
+
 .PHONY: clean
 clean:
-	@rm -f example/*.mjs example/*.wasm example/*.map
+	@rm -rf example/*.mjs example/*.wasm example/*.map doc

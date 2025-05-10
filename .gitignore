@@ -9,6 +9,7 @@ pubspec.lock
 # example/
 *.wasm
 *.mjs
+doc/
 
 # macOS
 .DS_Store
