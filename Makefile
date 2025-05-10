@@ -1,3 +1,5 @@
+SRC:=$(shell find lib -name '*.dart')
+
 .PHONY: example
 example: example/poor_web_example.wasm
 
@@ -5,7 +7,7 @@ example: example/poor_web_example.wasm
 serve: example
 	python3 -m http.server -d example
 
-%.wasm: %.dart
+%.wasm: %.dart $(SRC)
 	dart compile wasm --optimization-level=4 --no-source-maps --output=$@ $<
 
 .PHONY: check
@@ -25,4 +27,4 @@ fmt:
 
 .PHONY: clean
 clean:
-	@rm -f example/*.mjs example/*.wasm
+	@rm -f example/*.mjs example/*.wasm example/*.map

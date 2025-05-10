@@ -20,9 +20,24 @@ import 'package:poor_web/poor_web.dart';
 void main() {
   final global = globalThis;
 
-  global['foo'] = Object();
-  print(global['foo']); // [object Object]
-  print(global['baz']); // null
+  global['calc'] =
+      Object()
+        ..['add'] = Fn.a2(
+          (a, b) => switch ((a?.number, b?.number)) {
+            (Number a, Number b) => a + b,
+            _ => throw Exception('Invalid arguments: $a, $b'),
+          },
+        );
+  print(global['calc']); // [object Object]
+  print(global['foo']); // null
+
+  final a = 1;
+  final b = 2;
+  final c = global['calc']?.object?['add']?.function?.call(
+    Number(a),
+    Number(b),
+  );
+  print('$a + $b = $c'); // 1 + 2 = 3
 }
 ```
 

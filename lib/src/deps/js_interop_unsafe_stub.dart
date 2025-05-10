@@ -1,6 +1,7 @@
 import 'js_interop_stub.dart';
 
-extension JSObjectExtension on JSObject {
+/// stub
+extension JSObjectUnsafeUtilExtension on JSObject {
   R callMethodVarArgs<R extends JSAny?>(
     JSAny method, [
     List<JSAny?>? arguments,
@@ -18,4 +19,15 @@ extension JSObjectExtension on JSObject {
       );
 
   void setProperty(JSAny property, JSAny? value) => ();
+}
+
+/// stub
+extension JSFunctionUnsafeUtilExtension on JSFunction {
+  JSAny? callAsFunction([
+    JSAny? this0,
+    JSAny? arg1,
+    JSAny? arg2,
+    JSAny? arg3,
+    JSAny? arg4,
+  ]) => null;
 }

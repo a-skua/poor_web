@@ -12,7 +12,8 @@
 
       const instance = await instantiate(
         compileStreaming(
-          fetch(new URL("./poor_web_example.wasm", import.meta.url)),
+          // fetch(new URL("./poor_web_example.wasm", import.meta.url)),
+          fetch(new URL("./poor_web_example.unopt.wasm", import.meta.url)),
         ),
       );
 

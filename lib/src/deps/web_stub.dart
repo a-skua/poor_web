@@ -11,13 +11,14 @@ class Location {
   get isNull => false;
 }
 
-class Window {
-  const Window();
+extension type Window._(JSObject _obj) implements JSObject {
+  Window() : _obj = JSObject();
+
   Location get location => const Location();
   get isNull => false;
 }
 
-get window => const Window();
+get window => Window();
 
 class Console {
   const Console();

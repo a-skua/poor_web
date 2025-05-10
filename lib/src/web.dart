@@ -1,10 +1,11 @@
+import 'dart:core' as core;
 import 'deps/web.dart' as web;
 export 'deps/web.dart';
 
 import 'js.dart';
 
 extension ElementAppendAll on web.Element {
-  void appendAll(Iterable<JSAny> elements) {
+  void appendAll(core.Iterable<JSAny> elements) {
     for (final element in elements) {
       append(element);
     }
@@ -12,10 +13,10 @@ extension ElementAppendAll on web.Element {
 }
 
 extension type Window._(web.Window _window) implements web.Window, Object {
-  Object? operator [](String property) => Object.fromJS(_window)[property];
+  Any? operator [](core.String property) => (_window as Object)[property];
 
-  void operator []=(String property, Object? value) =>
-      Object.fromJS(_window)[property] = value;
+  void operator []=(core.String property, Any? value) =>
+      (_window as Object)[property] = value;
 }
 
 /// Error on Node.js:
@@ -24,4 +25,4 @@ Window get window => Window._(globalContext as web.Window);
 
 Window get globalThis => window;
 
-Uri get current => Uri.parse(window.location.href);
+core.Uri get current => core.Uri.parse(window.location.href);
