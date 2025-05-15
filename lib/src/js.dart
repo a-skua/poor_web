@@ -3,6 +3,9 @@ import 'deps/js_interop_unsafe.dart';
 import 'deps/js_interop.dart';
 
 /// Wrap [JSAny]
+extension type Any._(JSAny _any) implements JSAny {}
+
+/// [Any] extension
 ///
 /// ```dart
 /// Number add(Any a, Any b) => switch ((a.number, b.number)) {
@@ -10,7 +13,7 @@ import 'deps/js_interop.dart';
 ///   _ => Number(0),
 /// };
 /// ```
-extension type Any._(JSAny _any) implements JSAny {
+extension AnyExtension on Any {
   Fn? get function => isA<JSFunction>() ? _any as Fn : null;
   Object? get object => isA<JSObject>() ? _any as Object : null;
   String? get string => isA<JSString>() ? _any as String : null;
