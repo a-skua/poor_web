@@ -1,3 +1,4 @@
+import 'package:web/web.dart';
 import 'package:poor_web/poor_web.dart';
 
 void main() {

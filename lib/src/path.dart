@@ -1,5 +1,7 @@
 import './web.dart';
 
+Uri get current => Uri.parse(window.location.href);
+
 /// Path
 class Path {
   final List<String> segments;

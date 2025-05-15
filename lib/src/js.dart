@@ -1,10 +1,15 @@
 import 'dart:core' as core;
 import 'deps/js_interop_unsafe.dart';
-
 import 'deps/js_interop.dart';
-export 'deps/js_interop.dart';
 
 /// Wrap [JSAny]
+///
+/// ```dart
+/// Number add(Any a, Any b) => switch ((a.number, b.number)) {
+///   (Number a, Number b) => a + b,
+///   _ => Number(0),
+/// };
+/// ```
 extension type Any._(JSAny _any) implements JSAny {
   Fn? get function => isA<JSFunction>() ? _any as Fn : null;
   Object? get object => isA<JSObject>() ? _any as Object : null;
@@ -181,11 +186,12 @@ extension type Fn<
   factory Fn.a4(R Function(A1, A2, A3, A4) fn) =>
       Fn(([a, b, c, d]) => fn(a as A1, b as A2, c as A3, d as A4));
 
-  Any? call([Any? arg1, Any? arg2, Any? arg3, Any? arg4]) => switch (_fn
-      .callAsFunction(_fn, arg1, arg2, arg3, arg4)) {
-    final JSAny any => Any._(any),
-    null => null,
-  };
+  R call([A1? a1, A2? a2, A3? a3, A4? a4]) =>
+      switch (_fn.callAsFunction(_fn, a1, a2, a3)) {
+            final JSAny any => Any._(any),
+            null => null,
+          }
+          as R;
 }
 
 /// Wrap [JSString]
